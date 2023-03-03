@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Text, SafeAreaView, TextInput, TouchableOpacity, ScrollView, FlatList } from 'react-native';
 import { Button } from '../../components/Button';
+import { TaskCard } from '../../components/TaskCard';
 
 import { styles } from './styles';
 
@@ -30,7 +31,7 @@ export function Home() {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.text}>
-        Olá, Leonardo
+        Olá, Stephen e Vinicius
       </Text>
       <TextInput 
         style={styles.input}
@@ -53,14 +54,18 @@ export function Home() {
         data={tasks}
         keyExtractor={item => item.id}
         renderItem={({ item }) => (
-          <TouchableOpacity 
-            style={styles.buttonTask}
+          // <TouchableOpacity 
+          //   style={styles.buttonTask}
+          //   onPress={() => handleRemoveTask(item.id)}
+          // >
+          //   <Text style={styles.textTask}>
+          //     {item.name}
+          //   </Text>
+          // </TouchableOpacity>
+          <TaskCard 
+            title={item.name}
             onPress={() => handleRemoveTask(item.id)}
-          >
-            <Text style={styles.textTask}>
-              {item.name}
-            </Text>
-          </TouchableOpacity>
+          />
         )}
       />
     </SafeAreaView>
